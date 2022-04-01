@@ -16,24 +16,20 @@ const openModalFunction = () => {
 };
 for (let i = 0; i < showModal.length; i++) {
   showModal[i].addEventListener('click', function () {
-    modal.classList.remove('hidden');
-    overlay.classList.remove('hidden');
+    openModalFunction();
   });
 }
 
 closeModal.addEventListener('click', function () {
-  modal.classList.add('hidden');
-  overlay.classList.add('hidden');
+  closeModalFunction();
 });
 
 overlay.addEventListener('click', function () {
-  modal.classList.add('hidden');
-  overlay.classList.add('hidden');
+  closeModalFunction();
 });
 
 document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
-    modal.classList.add('hidden');
-    overlay.classList.add('hidden');
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModalFunction();
   }
 });
